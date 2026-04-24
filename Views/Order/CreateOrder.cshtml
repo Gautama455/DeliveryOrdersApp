@@ -1,0 +1,54 @@
+@model DeliveryOrdersApp.Models.CreateOrderViewModel
+
+@{
+    ViewData["Title"] = "Создать заказ";
+}
+
+<link rel="stylesheet" href="~/css/CreateOrderStyle.css" asp-append-version="true" />
+
+<header class="header-create">Создать заказ</header>
+
+<form asp-action="CreateOrder" asp-controller="Order" method="post" class="form-create">
+
+    <div class="form-group">
+        @Html.LabelFor(vm => vm.SenderCity, new { @class = "form-label fs-6" })
+        <input asp-for="SenderCity" class="form-control" />
+        <span asp-validation-for="SenderCity" class="text-danger validation-message"></span>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(vm => vm.SenderAdress, new { @class = "form-label fs-6" })
+        <input asp-for="SenderAdress" class="form-control" />
+        <span asp-validation-for="SenderAdress" class="text-danger validation-message"></span>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(vm => vm.RecipientCity, new { @class = "form-label fs-6" })
+        <input asp-for="RecipientCity" class="form-control" />
+        <span asp-validation-for="RecipientCity" class="text-danger validation-message"></span>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(vm => vm.RecipientAdress, new { @class = "form-label fs-6" })
+        <input asp-for="RecipientAdress" class="form-control" />
+        <span asp-validation-for="RecipientAdress" class="text-danger validation-message"></span>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(vm => vm.Weight, new { @class = "form-label fs-6" })
+        <input asp-for="Weight" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Weight" class="text-danger validation-message"></span>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(vm => vm.PickupDate, new { @class = "form-label fs-6" })
+        <input asp-for="PickupDate" class="form-control" type="date" />
+        <span asp-validation-for="PickupDate" class="text-danger validation-message"></span>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a asp-controller="Order" asp-action="OrdersList" class="btn btn-secondary">Список заказов</a>
+    </div>
+
+</form>

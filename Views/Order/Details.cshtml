@@ -1,0 +1,43 @@
+@model DeliveryOrdersApp.Models.Order
+
+@{
+    ViewData["Title"] = "Детали заказа";
+}
+
+<link rel="stylesheet" href="~/css/DetailsStyle.css" asp-append-version="true" />
+
+<div class="details-container">
+    <h2 class="details-title">Детали заказа</h2>
+
+    <div class="details-info">
+        <dl class="row">
+            <dt class="col-sm-3">Номер заказа:</dt>
+            <dd class="col-sm-9">@Model.OrderNumber</dd>
+
+            <dt class="col-sm-3">Город отправителя:</dt>
+            <dd class="col-sm-9">@Model.SenderCity</dd>
+
+            <dt class="col-sm-3">Адрес отправителя:</dt>
+            <dd class="col-sm-9">@Model.SenderAdress</dd>
+
+            <dt class="col-sm-3">Город получателя:</dt>
+            <dd class="col-sm-9">@Model.RecipientCity</dd>
+
+            <dt class="col-sm-3">Адрес получателя:</dt>
+            <dd class="col-sm-9">@Model.RecipientAdress</dd>
+
+            <dt class="col-sm-3">Вес (кг):</dt>
+            <dd class="col-sm-9">@Model.Weight</dd>
+
+            <dt class="col-sm-3">Дата создания:</dt>
+            <dd class="col-sm-9">@Model.CreatAt.ToString("dd.MM.yyyy HH:mm")</dd>
+        </dl>
+    </div>
+
+    <div class="details-actions">
+        <a asp-controller="Order" asp-action="OrdersList" class="btn-details">
+            Назад к списку
+        </a>
+        <a href="/" class="btn-details">Первая страница</a>
+    </div>
+</div>
